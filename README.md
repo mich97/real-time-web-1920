@@ -38,7 +38,7 @@ Demo-app of the first weeks assigment, a real time web-chat.
     ``` 
 4. Run
     ```
-    $ npm run start
+    $ npm run dev
     ```
 5. Open following url in browser
     ```
