@@ -12,6 +12,7 @@ Demo-app of the first weeks assigment, a real time web-chat.
 - Overview of active users
 
 ## Dependencies
+The following (dev-)dependencies are being used:
 ```
   "dependencies": {
     "express": "^4.17.1",
@@ -24,6 +25,7 @@ Demo-app of the first weeks assigment, a real time web-chat.
 ```
 
 ## Install
+Follow the steps beneath to run this app locally.
 1. Clone repo
     ```
     $ git clone https://github.com/mich97/real-time-web-1920.git
@@ -46,6 +48,7 @@ Demo-app of the first weeks assigment, a real time web-chat.
    ```
    
 ## Credits
+The following resources were used to develop this app:
 - [Build a Real Time Chat App With Node.js And Socket.io](https://www.youtube.com/watch?v=rxzOqP9YwmM&t=18s)
 - [Realtime Chat With Users & Rooms - Socket.io, Node & Express](https://www.youtube.com/watch?v=jD7FnbI76Hg)
 - Lectures and live coding session from Laurens/Guido
