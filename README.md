@@ -1,10 +1,11 @@
 # RTW1920 | Chatapp
+![Chatapp thumbnail](./course/chatapp-thumbnail.png)
 Demo-app of the first weeks assigment, a real time web-chat.
 
 ## Live Demo
 [Link](https://rtw-michel.herokuapp.com/)
 
-## Featuers
+## Features
 - Set username
 - Multiple chatrooms
 - Realtime chatting
@@ -43,3 +44,8 @@ Demo-app of the first weeks assigment, a real time web-chat.
     ```
    localhost:3000
    ```
+   
+## Credits
+- [Build a Real Time Chat App With Node.js And Socket.io](https://www.youtube.com/watch?v=rxzOqP9YwmM&t=18s)
+- [Realtime Chat With Users & Rooms - Socket.io, Node & Express](https://www.youtube.com/watch?v=jD7FnbI76Hg)
+- Lectures and live coding session from Laurens/Guido
