@@ -1,12 +1,13 @@
-# RTW1920 | Satellite Tracker
-Real-time orbital tracking for satellites. The Satellite Tracker is an overview of real-time tracked satellites, it also includes a timeline of recent milestones of any satellites.
+# RTW1920 | Concept
+First concept of my real-time application. The idea is to create a Kahoot like quiz game where the Marvel API is used to retrieve certain data. Players will be able to sign in, when the quiz starts it shall display a Marvel character. The players will have to guess the Marvel character, this will probably be multiple choice.
 
 ## Features
-- Timeline of recent satellite milestones
-- Overview of satellites
-- Details of satellites
+- Multiplayer quiz
+- Achieve points if correct
+- Display score at the end of quiz
+
 
 ## API
-For this application data is retrieved from the [UPHERE.SPACE](https://uphere.space/) API. UPHERE.SPACE keeps track of thousands of satellites and predicts their orbit.
+Data of characters that players have to guess is retrieved from the [Marvel API](https://developer.marvel.com/).
 
 ## Data Life Cycle
