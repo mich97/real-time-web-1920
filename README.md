@@ -12,3 +12,4 @@ First concept of my real-time application. The idea is to create a Kahoot like q
 Data of characters that players have to guess is retrieved from the [Marvel API](https://developer.marvel.com/).
 
 ## Data Life Cycle
+![DLC](./course/data-life-cycle.png)
