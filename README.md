@@ -32,7 +32,32 @@ Follow the steps beneath to run this app locally.
 - Display leaderboard at end
 
 ## API
-Data of characters that players have to guess is retrieved from the [Marvel API](https://developer.marvel.com/).
+This web-app was made by making use of the Marvel API. The Marvel API allows developers everywhere to access information about Marvel's vast library of records what's coming up, to 70 years ago, 3000 calls can be made daily. Documentation can be found [here](https://developer.marvel.com/docs).
+
+To fetch server side the API requires a md5 hash consisting of a timestamp, public key and private key.
+
+In our case only the characters are used for the application. The provided object can be seen below, it has been mapped to only get certain properties.
+```
+"results": [
+  {
+    "id": "int",
+    "name": "string",
+    "description": "string",
+    "modified": "Date",
+    "resourceURI": "string",
+    "urls": [
+      {
+        "type": "string",
+        "url": "string"
+      }
+    ],
+    "thumbnail": {
+      "path": "string",
+      "extension": "string"
+    }
+  }
+]
+```
 
 ## Data Life Cycle
-![DLC](./course/data-life-cycle.png)
+![DLC](./course/data-life-cycle-v2.png)
