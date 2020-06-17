@@ -1,0 +1,26 @@
+<%- include('partials/head') %>
+
+<script>
+    const roomName = "<%= roomName %>"
+</script>
+
+<section>
+    <main>
+        <div class="game-container">
+            <div id="gameImg">
+                <H2>The game will start if there are 2 players</H2>
+            </div>
+        </div>
+        <ul id="messages"></ul>
+    </main>
+
+
+    <form id="send-container">
+        <input id="message-input" autocomplete="off" required />
+        <button>Send</button>
+    </form>
+</section>
+<script defer src="/socket.io/socket.io.js"></script>
+<script defer src="./js/script.js"></script>
+
+<%- include('partials/footer') %>

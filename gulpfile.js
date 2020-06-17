@@ -27,5 +27,5 @@ gulp.task('watch', () => {
     });
     // Watchers
     gulp.watch('./src/sass/**/*.scss', gulp.series('sass'));
-    gulp.watch('./views/**/*.hbs', browserSync.reload);
+    gulp.watch('./views/**/*.ejs', browserSync.reload);
 });
