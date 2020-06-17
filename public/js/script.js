@@ -8,7 +8,7 @@ const main = document.querySelector('main')
 
 if (messageForm != null) {
     const name = prompt('what is your name')
-    appendMessage('You joined')
+    appendMessage('You have joined')
     socket.emit('new-user', roomName, name)
 
 
@@ -18,11 +18,11 @@ if (messageForm != null) {
         const message = messageInput.value
         if(message == '/help'){
             setTimeout(function(){ appendHelpMessage (`SERVER: How to play \n 
-        1. You see a picture of a game \n 
-        2. if you know the name of the game. Typ it in chat  \n
-        3. Typ the name correctly: Good:(Fallout: New Vegas) Wrong:(fallout new vegas) \n
-        4. guess right you will get a point \n
-        5. after 10 rondes the user with the most points win `) }, 1000);
+        1. When 2 players are in the room the game starts \n 
+        2. On the left you'll see the picture of a Marvel Character  \n
+        3. Type the name correctly in the input below, (caps sensitive) \n
+        4. Whoever guesses it right first earns a point \n
+        5. After 5 rounds the player with most points wins! `) }, 1000);
             messageInput.value = ''
             scrollToBottom();
         }
@@ -31,14 +31,6 @@ if (messageForm != null) {
             messageInput.value = ''
             scrollToBottom();
         }
-        if(message == '/marco'){
-            appendMessage(`You: ${message}`)
-            setTimeout(function(){ appendMessage(`SERVER: Polo`) }, 1000);
-            messageInput.value = ''
-            scrollToBottom();
-        }
-
-
         else {
             appendMessage(`You: ${message}`)
             socket.emit('send-chat-message', roomName, message)
@@ -68,7 +60,7 @@ socket.on('chat-message', data => {
 socket.on('newImage', data => {
     console.log(data);
     const imgContainer = document.getElementById("gameImg")
-    imgContainer.innerHTML = `<img src="${data.gameImg}" alt=""> <h2> What is the name of this game?</h2> `
+    imgContainer.innerHTML = `<img src="${data.gameImg}" alt=""> <h2>Who is this character?</h2> `
 
 })
 
@@ -159,7 +151,7 @@ function appendScore(message) {
 function GameOverMessage() {
     const messageElement = document.createElement('section')
     messageElement.classList.add("end-screen");
-    messageElement.innerHTML = `<div class="end-screen-message "><h1> Match is over</h1>  </div>`
+    messageElement.innerHTML = `<div class="end-screen-message "><h1>Thanks for playing!</h1>  </div>`
     main.append(messageElement)
 
 }

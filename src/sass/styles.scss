@@ -4,8 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  background-color: #121212;
-  font-family: Raleway,sans-serif;
+  font-family: monospace;
 }
 body {
   margin: 0;
@@ -20,20 +19,19 @@ main {
 }
 
 #messages .correct {
-  background-color: green !important;
+  background-color: lightgreen !important;
 }
 #messages .ronde {
-  background-color: rgb(170, 112, 5) !important;
+  background-color: lightsalmon!important;
   font-weight: bold;
   font-size: 1.2em;
-  padding: 1em 10px;
 }
 #messages .score {
-  background-color: rgb(8, 105, 105) !important;
+  background-color: lightskyblue !important;
   font-style:italic ;
 }
 #messages .help {
-  background-color: purple !important;
+  background-color: lightpink !important;
 }
 ul {
   text-decoration: none;
@@ -48,45 +46,47 @@ section {
 }
 
 form {
-  background: #000;
   padding: 3px;
   position: fixed;
   bottom: 0;
   lefT: 0;
   max-width: 1140px;
   right: 0;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 
 form input {
   width: 100%;
   padding: 10px 15px;
   text-align: right;
-  font-size: 2em;
   border: none;
+  border-radius: 10px;
+  font-family: monospace;
 }
 
 form button {
-  background-image: linear-gradient(45deg,#380cd6 10%,#e50ae7 50%,#380cd6 100%);
-  color: #fff;
   border: none;
   padding: 16px;
   position: relative;
-  width: 5em;
+  width: 10em;
   z-index: 1;
   cursor: pointer;
   background-size: 400%;
   animation: colorshift 3s linear 0s infinite;
+  background-color: lightgrey;
+  border-radius: 10px;
+  font-family: Monospace;
 }
 
 #messages {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  color: #fff;
   overflow-y: auto;
   height: 87vh;
   -ms-overflow-style: none;
@@ -97,12 +97,15 @@ form button {
   display: none;
 }
 #messages li {
-  padding: 5px 10px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
 }
 
 #messages li:nth-child(odd) {
-  background-color: #575757;
+  background-color: lightgrey;
 }
+
 #room-overview {
   display: flex;
   flex-direction: row;
@@ -113,67 +116,34 @@ form button {
 }
 
 #room-overview li {
-  height: auto;
-  color: #fff;
-  transition: .3s ease 0s;
-  box-sizing: content-box;
-  position: relative;
   text-align: center;
   width: 17.5em;
-  flex-direction: column-reverse;
   margin: 2.5px;
-  height: auto;
 }
 #room-overview li a {
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
-  /* right: 0; */
-  /* bottom: -1px; */
-  /* background-color: transparent; */
   color: transparent;
   transition: .3s ease 0s;
-  color: #fff;
   opacity: 1;
 }
-/* #room-overview li a:hover {
-} */
+
 #room-overview li h2 {
-  /* position: absolute; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-image: linear-gradient(45deg,#380cd6 10%,#e50ae7 50%,#380cd6 100%);
-  background-size: 400%;
-  /* animation: colorshift 6s linear 0s infinite; */
+  color: black;
+  background-color: lightgrey;
   padding: 15px;
-  opacity: inherit;
-  color: inherit;
-  text-transform: capitalize;
-  text-align: left;
-  font-size: 1em;
-}
+  border-radius: 10px;
+  transition: 200ms ease-in-out;
+  border: 2px solid grey;
 
-#room-overview li  img {
-  width: 100%;
-  height: 15em;
-  opacity: 1;
-  z-index: 7;
-  object-fit: fill;
-}
-#room-overview li:hover {
-
-  border-color: green;
-
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .game-container{
   text-align: center;
   position: relative;
   padding: 2em;
-  background-color: #000;
-  color: #fff;
-  min-height: calc(100vh - 78px );
+  min-height: calc(100vh - 78px);
 }
 
 main {
@@ -190,11 +160,10 @@ section.end-screen {
   z-index: 9;
   text-align: center;
   padding: 3em;
-  color: #fff;
 }
+
 section.end-screen::after {
   position: absolute;
-  background-image: linear-gradient(45deg,#380cd6 10%,#e50ae7 50%,#380cd6 100%);
   left: 0;
   right: 0;
   bottom: 0;
@@ -203,25 +172,10 @@ section.end-screen::after {
   content:"";
   opacity: 0.8;
   background-size: 400%;
-  animation: colorshift 6s linear 0s infinite;
 }
-
 
 section.end-screen .end-screen-message {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-}
-@keyframes colorshift {
-  0% {
-    background-position: 0 100%;
-  }
-
-  50% {
-    background-position: 100% 100%;
-  }
-
-  100% {
-    background-position: 0 100%;
-  }
 }

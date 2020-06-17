@@ -16,6 +16,14 @@ const fetch = require('node-fetch');
 const port = process.env.PORT || 3000;
 const publicPath = path.join(__dirname, './public/');
 
+const md5 = require('md5');
+const timestamp = Date.now();
+const publicKey = process.env.PUBLIC_KEY;
+const privateKey = process.env.PRIVATE_KEY;
+const hash = md5(timestamp + privateKey + publicKey);
+const url = `http://gateway.marvel.com/v1/public/characters?limit=100&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
+
+
 app
     .set('view engine', 'ejs')
     .set('views', 'views')
@@ -69,7 +77,7 @@ app
     })
 
 
-let gameName = '';
+let charName = '';
 let ronde = [1];
 
 io.on('connection', function (socket) {
@@ -78,17 +86,19 @@ io.on('connection', function (socket) {
         rooms[room].users[socket.id] = name
 
         socket.to(room).broadcast.emit('user-connected', name)
+
         async function randomGame() {
-            fetch(`https://api.rawg.io/api/games`)
+            fetch(url)
                 .then(async response => {
-                    const GamesData = await response.json()
-                    let randomItem = GamesData.results[Math.random() * GamesData.results.length | 0];
-                    const gameImg = randomItem.background_image;
-                    gameName = randomItem.name;
-                    console.log('Name = ' + gameName);
-                    console.log('Img = ' + gameImg);
+                    const preData = await response.json();
+                    const charData = preData.data.results;
+                    let randomItem = charData[Math.random() * charData.length | 0];
+                    const charImg = `${randomItem.thumbnail.path}.${randomItem.thumbnail.extension}`;
+                    charName = randomItem.name;
+                    console.log('Name = ' + charName);
+                    console.log('Img = ' + charImg);
                     io.in(room).emit('newImage', {
-                        gameImg
+                        gameImg: charImg
                     });
                 })
         }
@@ -110,7 +120,7 @@ io.on('connection', function (socket) {
     let score = [0]
     socket.on('send-chat-message', (room, message) => {
 
-        if (message == gameName) {
+        if (message == charName) {
             console.log("CORRECT");
 
 
@@ -132,22 +142,20 @@ io.on('connection', function (socket) {
                     score: [score++],
                     score
                 })
-                fetch(`https://api.rawg.io/api/games`)
+                fetch(url)
                     .then(async response => {
-                        const GamesData = await response.json()
-                        let randomItem = GamesData.results[Math.random() * GamesData.results.length | 0];
-                        const gameImg = randomItem.background_image;
-                        gameName = randomItem.name;
-                        console.log('Name = ' + gameName);
+                        const preData = await response.json();
+                        const GamesData = preData.data.results;
+                        let randomItem = GamesData[Math.random() * GamesData.length | 0];
+                        const gameImg = `${randomItem.thumbnail.path}.${randomItem.thumbnail.extension}`;
+                        charName = randomItem.name;
+                        console.log('Name = ' + charName);
                         console.log('IMG = ' + gameImg);
                         console.log('ronde = ' + ronde);
                         io.in(room).emit('newImage', {
                             gameImg
                         });
                     })
-
-
-
             }
         } else {
             socket.to(room).broadcast.emit('chat-message', {
