@@ -78,7 +78,7 @@ app
 
 
 let charName = '';
-let ronde = [1];
+let ronde = [0];
 
 io.on('connection', function (socket) {
 
@@ -105,7 +105,7 @@ io.on('connection', function (socket) {
 
         socket.join(room)
 
-        console.log('Room: ' + [room] + " have " + io.sockets.adapter.rooms[room].length + " players");
+        console.log('Room: ' + [room] + " has " + io.sockets.adapter.rooms[room].length + " players");
         if (io.sockets.adapter.rooms[room].length == 2) {
             console.log('READY')
             randomGame()
@@ -121,11 +121,11 @@ io.on('connection', function (socket) {
     socket.on('send-chat-message', (room, message) => {
 
         if (message == charName) {
-            console.log("CORRECT");
+            console.log("Correct!");
 
 
             if (ronde == 5) {
-                console.log("GAME OVER");
+                console.log("Game ended");
                 io.in(room).emit('game-over');
                 delete rooms[room];
             } else {

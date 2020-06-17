@@ -65,7 +65,7 @@ socket.on('newImage', data => {
 })
 
 socket.on('correct-message', data => {
-    appendMessageCorrect(`SERVER: ${data.name} GOOD JOB`)
+    appendMessageCorrect(`SERVER: ${data.name} got the answer right!`)
     scrollToBottom();
 
 })
@@ -77,7 +77,7 @@ socket.on('ronde-message', data => {
 })
 
 socket.on('update-score', data => {
-    appendScore(`${data.name}  now have ${data.score} points `)
+    appendScore(`${data.name} now has ${data.score} points `)
     scrollToBottom();
 
 })
@@ -92,22 +92,9 @@ socket.on('user-disconnected', name => {
     appendMessage(`SERVER: ${name} disconnected`)
 })
 
-// socket.on('show-users', data => {
-//     var i;
-// for (i = 0; i < data.name.length; i++) {
-//     appendMessage(`SERVER: ${data.name[i]} disfsfssfconnected`)
-// }
-
-// })
-
-
-
 socket.on('game-over', () => {
-
     GameOverMessage()
     setTimeout(function(){ window.location.replace("/");}, 10000);
-
-
 })
 
 
