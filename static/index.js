@@ -33,13 +33,13 @@ socket.on("players", function(players) {
 	}
 });
 
-socket.on("sendCard", function(dog) {
+socket.on("sendCard", function(comic) {
 	const overlayEl = document.querySelector(".js-overlay");
 	overlayEl.classList.add("display-none");
-	const dogSrc = document.querySelector(".js-comicSrc");
+	const comicSrc = document.querySelector(".js-comicSrc");
 	const points = document.querySelector(".js-points");
-	points.innerHTML = dog.points;
-	dogSrc.src = dog.image;
+	points.innerHTML = comic.points;
+	comicSrc.src = comic.image;
 	const opponentBidEl = document.querySelector(".js-opponent-bid");
 	opponentBidEl.innerHTML = "...";
 });
