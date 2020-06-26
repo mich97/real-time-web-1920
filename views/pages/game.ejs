@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+<h1 class="h1">Comic Bidding War</h1>
+<section class="js-game game">
+    <p>Game pin <span class="game__pin"><%= roomId %></span>
+    </p>
+    <section class="w-100">
+        <h2 class="js-end-result"></h2>
+        <ul class="js-players game__players">
+            <li class="game__player winner"><%= username %> (you) <span><span class="js-current-user-points">0</span>
+						points</span></li>
+            <li class="game__player"><span class="js-opponent">Waiting for opponent ...</span>
+                <span class=""><span class="js-opponent-points">0</span> points</span></li>
+        </ul>
+    </section>
+    <section class="js-game-form game__form display-none">
+        <div class="comic-card">
+            <p class="comic-card-points"><span class="js-points"></span>points </p>
+            <div class="result-overlay-color js-overlay display-none">
+                <div class="result-overlay">
+                    <div class="result__player">
+                        <p><%= username %> (you) test</p>
+                        <p class="h1">€<span class="js-bid"></span></p>
+                        <p>bid</p>
+                    </div>
+                    <div class="result__player">
+                        <p class="js-opponent">Player 1</p>
+                        <p class="h1">€<span class="js-opponent-bid">...</span></p>
+                        <p>bid</p>
+                    </div>
+                </div>
+            </div>
+            <img class="comic-card-img js-comicSrc" src="" alt="">
+        </div>
+
+        <form class="bet-form js-bet-form" action="">
+            <div class="bet-form__input-fields">
+                <input type="radio" class="js-bid-button display-none" value="10" name="bid" id="bet_10">
+                <label for="bet_10" class="bet-form__label">$10</label>
+
+                <input type="radio" class="js-bid-button display-none" value="25" name="bid" id="bet_25">
+                <label for="bet_25" class="bet-form__label">$25</label>
+
+                <input type="radio" class="js-bid-button display-none" value="50" name="bid" id="bet_50">
+                <label for="bet_50" class="bet-form__label">$50</label>
+
+                <input type="radio" class="js-bid-button display-none" value="75" name="bid" id="bet_75">
+                <label for="bet_75" class="bet-form__label">$75</label>
+                <button type="submit" class="btn btn-opacity js-bet-form-submit">Send</button>
+            </div>
+        </form>
+    </section>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script src="index.js"></script>
+</body>
+
+</html>

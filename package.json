@@ -1,38 +1,31 @@
 {
-  "name": "quiz-app",
+  "name": "bidding-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "RTW",
+  "main": "index.js",
   "scripts": {
-    "predev": "npm run build:css",
-    "dev": "nodemon server.js",
-    "start": "node server.js",
-    "prebuild:css": "rimraf ./public/dist",
-    "build:css": "gulp sass",
-    "watch:css": "gulp watch"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.3",
-    "express": "^4.17.1",
-    "express-handlebars": "^4.0.3",
-    "express-minify-html-2": "^1.0.1",
-    "http": "0.0.1-security",
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "emoji-replace": "^1.0.1",
+    "express": "^4.16.4",
+    "express-session": "^1.17.0",
+    "express-socket.io-session": "^1.3.5",
     "md5": "^2.2.1",
+    "node-emoji": "^1.10.0",
     "node-fetch": "^2.6.0",
-    "socket.io": "^2.3.0"
+    "passport": "^0.4.1",
+    "passport-openid": "^0.4.0",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "eslint": "^6.8.0",
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-sass": "^4.1.0",
-    "nodemon": "^2.0.4",
-    "rimraf": "^3.0.2"
+    "nodemon": "^1.18.11"
   }
 }

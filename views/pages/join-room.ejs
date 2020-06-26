@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<% include ../partials/head %>
+</head>
+
+<body class="text-center">
+	<h1 class="h1">Comic Bidding War</h1>
+	<form action="/join-room" action="POST" class="js-room-form">
+		<button class="js-create-room btn" type="submit">Start a new game</button>
+		<p>or</p>
+		<input id="roomId" name="roomId" class="input" />
+		<button class="btn js-join-room" type="submit">Join a room</button>
+	</form>
+</body>
+<script src="index.js"></script>
+
+</html>
