@@ -12,7 +12,7 @@ In this real-time application 2 players can battle against eachother, bidding on
 - Session storage of certain data
 
 ## Data Life Cycle
-![DLC](./course/data-life-cycle-v2.png)
+![DLC](./course/data-life-cycle-v3.png)
 
 ## Events
 - `bid` save bid in user object and shows bids
