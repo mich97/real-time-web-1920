@@ -86,8 +86,6 @@ exports.getEndResult = players => {
 ```
 "dependencies": {
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.4",
-    "debug": "^4.1.1",
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
